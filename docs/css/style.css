@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  background: #CD5C5C;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Helvetica, sans serif;
+  color: #ffffff99;
+}
+.wrapper .title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.wrapper .title div {
+  background: #ffffff99;
+  width: 20px;
+  height: 2px;
+  margin: 10px 0;
+}
+.wrapper .credit {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-family: "Sacramento", cursive;
+}
+.wrapper .credit a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.6;
+}
+.wrapper .credit a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.artboard {
+  position: relative;
+  margin: auto;
+  /*   flex-basis: 100%; */
+  width: 600px;
+  height: 460px;
+}
+
+#art {
+  width: 600px;
+  height: 460px;
+}
+
+/*# sourceMappingURL=style.css.map */

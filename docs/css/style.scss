@@ -1,0 +1,71 @@
+$yellow:#FFD568;
+$yellow-light:#FFF2D1;
+$pink:#FF766D;
+$pink-light:#FFC8C3;
+$blue:#91E3FF;
+$blue-light:#D8F5FF;
+
+//violet
+$prime:#4E057E;
+$darker:#2E014A;
+$dark:#3E0364;
+$light:#601E8B;
+$lighter:#723798;
+$high:#FFE100;
+
+body{
+  margin:0;
+}
+.wrapper {
+  display: flex;
+  background:#CD5C5C;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  font-family:Helvetica, sans serif;
+  color:#ffffff99;
+  .title {
+    position:absolute;
+    top:10px;
+    left:20px;
+    font-size:16px;
+    font-weight:600;
+    line-height: 20px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    div {
+      background:#ffffff99;
+      width:20px;
+      height:2px;
+      margin:10px 0;
+    }
+  }
+  .credit {
+    position:absolute;
+    bottom:10px;
+    right:20px;
+    font-family: 'Sacramento', cursive;
+    a {
+      color:#fff;
+      text-decoration:none;
+      opacity:.6;
+      &:hover {
+        opacity:1;
+        text-decoration:underline;
+      }
+    }
+  }
+}
+
+.artboard{
+  position:relative;
+  margin: auto;
+/*   flex-basis: 100%; */
+  width:600px;
+  height:460px;
+  // background:#ffffff22;
+}
+#art {
+  width: 600px;
+  height: 460px;
+}
