@@ -63,12 +63,12 @@ function loop() {
     iso.add(step1.translate(2.6-i*.2,4.6,1+i*.1),dark); //3
   }
   iso.add(Shape.Prism(new Point(0.6,5.8,.4),2.2,1,.1),test); //3
-  
+    
   var step5 = Shape.Prism(new Point(0.8,7.8,.4),.2,1,.1);
   for(var i=25;i>=0;i--){
-    iso.add(step5.translate(2+i*.2,0,i*.1+.1),test); //5
+    iso.add(step5.translate(2+i*.2,0,i*.1+.1),dark); //5
   }
-
+  
   var step6 = Shape.Prism(new Point(0.8,9.8,.4),.2,1,.1);
   for(var i=0;i<5;i++){
     iso.add(step6.translate(2+i*.2,0,i*.1+.1),test); //6
@@ -76,6 +76,8 @@ function loop() {
 
   iso.add(Shape.Prism(new Point(0.6,7.8,.4),2.2,1,.1),test); //5
   iso.add(Shape.Prism(new Point(0.6,9.8,.4),2.2,1,.1),test); //6
+  iso.add(Shape.Prism(new Point(6.5,7.2,.6),1,4,.1),test); //2
+  iso.add(Shape.Prism(new Point(4.4,10.4,.4),2.3,1,.1),test); //6
   
   iso.add(Shape.Prism(new Point(-0.4,0.4,.4),1,10.4,.1),dark); //4
   iso.add(Shape.Prism(new Point(0,0,0),2,1,.1),dark); //1
