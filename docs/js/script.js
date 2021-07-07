@@ -55,7 +55,7 @@ function loop() {
   }
   
   iso.add(Shape.Prism(new Point(4.5,0,.6),1,6,.1),dark); //2
-  iso.add(Shape.Prism(new Point(3,0,.6),1.5,1,.1),dark); //1
+  iso.add(Shape.Prism(new Point(3,0,.6),5,1,.1),col); //1
   
   iso.add(Shape.Prism(new Point(2.6,4.6,1),1.5,1,.1),dark); //3
   
@@ -65,7 +65,7 @@ function loop() {
   iso.add(Shape.Prism(new Point(0.6,5.8,.4),2.2,1,.1),dark); //3
    
   // Patch behind the 
-  iso.add(Shape.Prism(new Point(10.4,8.2,.6),1,4,.1),col); //2
+  iso.add(Shape.Prism(new Point(10.4,1.2,.6),1,11,.1),col); //2
   iso.add(Shape.Prism(new Point(8.0,11.4,.4),2.6,1,.1),col); //6
   iso.add(Shape.Prism(new Point(7.8,7.2,.6),1,4,.1),col); //2
 
