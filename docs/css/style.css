@@ -22,9 +22,8 @@ body {
   letter-spacing: 2px;
 }
 .wrapper .title div {
-  background: #ffffff99;
-  width: 20px;
-  height: 2px;
+  width: 100px;
+  height: 50px;
   margin: 10px 0;
 }
 .wrapper .credit {
@@ -54,6 +53,32 @@ body {
 #art {
   width: 600px;
   height: 460px;
+}
+
+.buttons {
+  width: 100px;
+}
+
+.button {
+  flex-wrap: wrap;
+  float: left;
+  position: relative;
+  height: 50px;
+  width: 100px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttonodd {
+  background-color: #df7a71;
+}
+
+.buttoneven {
+  background-color: #ec9b93;
 }
 
 /*# sourceMappingURL=style.css.map */

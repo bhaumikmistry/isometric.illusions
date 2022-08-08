@@ -45,13 +45,25 @@ function Octahedron(origin) {
 }
 
 var angle = 0;
+var runStatus = {
+  one: true,
+  two: false
+};
+
+function resetRunStatus() {
+  angle = 0;
+  runStatus = {
+    one: false,
+    two: false
+  };
+}
+
 function loop() {
-  requestAnimationFrame(loop);
   
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
   for(var i=0;i<5;i++){
-    iso.add(step1.translate(2+i*.2,0,i*.1+.1),test); //1
+    iso.add(step1.translate(2+i*.2,0,i*.1+.1),dark); //1
   }
 
   // hollow pillar
@@ -74,8 +86,8 @@ function loop() {
   iso.add(Shape.Prism(new Point(6.1,3.1,0),1,1,.1),dark); //1
 
   iso.add(Shape.Prism(new Point(4.5,0,.6),1,6,0.1),dark); //2
-  iso.add(Shape.Prism(new Point(10.4,1,.6),1,11.2,.1),col); //2
-  iso.add(Shape.Prism(new Point(3,0,.6),8.4,1,.1),col); //1
+  iso.add(Shape.Prism(new Point(10.4,1,.6),1,11.2,.1),dark); //2
+  iso.add(Shape.Prism(new Point(3,0,.6),8.4,1,.1),dark); //1
   
   iso.add(Shape.Prism(new Point(2.6,4.6,1),1.5,1,.1),dark); //3
   
@@ -85,8 +97,8 @@ function loop() {
   iso.add(Shape.Prism(new Point(0.6,5.8,.4),2.2,1,.1),dark); //3
    
   // Patch behind the 
-  iso.add(Shape.Prism(new Point(8.0,11.4,.4),2.6,1,.1),col); //6
-  iso.add(Shape.Prism(new Point(7.8,7.2,.6),1,4,.1),col); //2
+  iso.add(Shape.Prism(new Point(8.0,11.4,.4),2.6,1,.1),dark); //6
+  iso.add(Shape.Prism(new Point(7.8,7.2,.6),1,4,.1),dark); //2
   var stepBlue = Shape.Prism(new Point(2.2,-0.4,.6),1,.2,.1);
   for(var i=13;i<=25;i++){
     iso.add(stepBlue.translate(2,0+i*.2,i*.1+.1),dark); //5
@@ -100,24 +112,56 @@ function loop() {
   
   var step6 = Shape.Prism(new Point(0.8,9.8,.4),.2,1,.1);
   for(var i=0;i<5;i++){
-    iso.add(step6.translate(2+i*.2,0,i*.1+.1),test); //6
+    iso.add(step6.translate(2+i*.2,0,i*.1+.1),dark); //6
   }
 
-  iso.add(Shape.Prism(new Point(0.6,7.8,.4),2.2,1,.1),col); //5
-  iso.add(Shape.Prism(new Point(0.6,9.8,.4),2.2,1,.1),test); //6
-  iso.add(Shape.Prism(new Point(5.5,7.2,.6),1,4,.1),test); //2
+  iso.add(Shape.Prism(new Point(0.6,7.8,.4),2.2,1,.1),dark); //5
+  iso.add(Shape.Prism(new Point(0.6,9.8,.4),2.2,1,.1),dark); //6
+  iso.add(Shape.Prism(new Point(5.5,7.2,.6),1,4,.1),dark); //2
 
-  iso.add(Shape.Prism(new Point(6.7,7.4,.4),1.3,1,.1),test); //6
-  iso.add(Shape.Prism(new Point(5.5,7.2,.6),1,4,.1),test); //2
-  iso.add(Shape.Prism(new Point(4.4,10.4,.4),1.3,1,.1),test); //6
+  iso.add(Shape.Prism(new Point(6.7,7.4,.4),1.3,1,.1),dark); //6
+  iso.add(Shape.Prism(new Point(5.5,7.2,.6),1,4,.1),dark); //2
+  iso.add(Shape.Prism(new Point(4.4,10.4,.4),1.3,1,.1),dark); //6
   
   iso.add(Shape.Prism(new Point(-0.4,0.4,.4),1,10.4,.1),dark); //4
   iso.add(Shape.Prism(new Point(0,0,0),2,1,.1),dark); //1
 
-  var p=Shape.Pyramid(Point.ORIGIN);
   iso.add(Octahedron(new Point(0,0,0))
     .rotateZ(new Point(.5,.5,.5), angle)
     .scale(new Point(.5,.5,.5),.6,.6,.6),col);
   angle += 2 * Math.PI / 90;
+  if (runStatus.one) {
+    requestAnimationFrame(loop);
+  }
 }
+
+
+function loopTwo(origin) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  for(var i=0;i<5;i++){
+    iso.add(step1.translate(2+i*.2,0,i*.1+.1),col); //1
+  }
+
+  if (runStatus.two) {
+    requestAnimationFrame(loopTwo);
+  }
+
+}
+
 requestAnimationFrame(loop);
+
+function onClickOne() {
+  console.log("onClickOne");
+  resetRunStatus();
+  runStatus.one = true;
+  requestAnimationFrame(loop);
+}
+
+function onClickTwo() {
+  console.log("onClickOne");
+  resetRunStatus();
+  runStatus.two = true;
+  requestAnimationFrame(loopTwo);
+
+}
